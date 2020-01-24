@@ -48,9 +48,9 @@ module Bullet
       body = response_body.dup
       if body.include?('</body>')
         position = body.rindex('</body>')
-        body.insert(position, content)
+        body.insert(position, content.html_safe)
       else
-        body << content
+        body << content.html_safe
       end
     end
 
